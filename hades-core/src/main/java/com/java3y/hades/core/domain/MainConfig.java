@@ -9,12 +9,13 @@ import java.util.List;
 
 /**
  * @author 3y
- * 监听到的变更配置
+ * 主配置
+ * eg：{"instanceNames":["TencentSmsService"],"updateTime":"2023年3月20日10:26:0131"}
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ListenerConfig {
+public class MainConfig {
 
     /**
      * 实例名

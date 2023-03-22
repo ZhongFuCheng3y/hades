@@ -1,28 +1,27 @@
-package com.java3y.hades.core.service;
+package com.java3y.hades.core.service.bean;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+/**
+ * @author 3y
+ * 将groovy class 注册到 Spring IOC 容器中
+ */
+@Service
 @Slf4j
-public class RegisterBeanService implements ApplicationContextAware {
-    ApplicationContext applicationContext;
+public class RegisterBeanService {
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
+    @Autowired
+    private ApplicationContext applicationContext;
 
     public <T> T registerBean(String name, Class<T> clazz, Object... args) {
         ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;
-        // 经过BeanDefinitionBuilder建立bean定义
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(clazz);
         for (Object arg : args) {
             beanDefinitionBuilder.addConstructorArgValue(arg);

@@ -1,7 +1,6 @@
 package com.java3y.hades.core.service.core;
 
 import com.alibaba.fastjson2.JSON;
-import com.google.common.base.Strings;
 import com.google.common.base.Throwables;
 import com.java3y.hades.core.domain.MainConfig;
 import com.java3y.hades.core.service.bean.RegisterBeanService;
@@ -10,6 +9,7 @@ import com.java3y.hades.core.utils.HadesCache;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
 import java.util.Objects;
@@ -38,7 +38,7 @@ public abstract class BaseHadesConfig implements HadesConfig {
     @PostConstruct
     public void init() {
         String mainConfig = getConfigValueByName(mainConfigFileName);
-        if (!Strings.isNullOrEmpty(mainConfig)) {
+        if (StringUtils.hasText(mainConfig)) {
             bootstrap(mainConfig);
             addListener();
         }

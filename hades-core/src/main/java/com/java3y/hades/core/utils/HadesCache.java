@@ -1,7 +1,7 @@
 package com.java3y.hades.core.utils;
 
 
-import com.google.common.base.Strings;
+import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class HadesCache {
      */
     public static boolean diff(String key, String currentGroovyCode) {
         String originGroovyCode = get2CodeCache(key);
-        if (!Strings.isNullOrEmpty(originGroovyCode) && originGroovyCode.equals(currentGroovyCode)) {
+        if (StringUtils.hasText(originGroovyCode) && originGroovyCode.equals(currentGroovyCode)) {
             return false;
         }
         return true;

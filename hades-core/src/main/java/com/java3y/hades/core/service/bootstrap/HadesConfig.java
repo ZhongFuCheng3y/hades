@@ -1,4 +1,4 @@
-package com.java3y.hades.core.service.core;
+package com.java3y.hades.core.service.bootstrap;
 
 
 /**

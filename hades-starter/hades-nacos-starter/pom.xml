@@ -11,9 +11,18 @@
 
     <artifactId>hades-nacos-starter</artifactId>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.github.ZhongFuCheng3y</groupId>
+            <artifactId>hades-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 </project>

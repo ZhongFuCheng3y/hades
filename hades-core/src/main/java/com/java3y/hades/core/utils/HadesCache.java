@@ -1,8 +1,11 @@
 package com.java3y.hades.core.utils;
 
 
+import com.google.common.hash.Hashing;
+import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,8 +29,9 @@ public class HadesCache {
      * @return
      */
     public static boolean diff(String key, String currentGroovyCode) {
+        String currentGroovyCodeMd5 = DigestUtils.md5DigestAsHex(currentGroovyCode.getBytes(StandardCharsets.UTF_8));
         String originGroovyCode = get2CodeCache(key);
-        if (StringUtils.hasText(originGroovyCode) && originGroovyCode.equals(currentGroovyCode)) {
+        if (StringUtils.hasText(originGroovyCode) && originGroovyCode.equals(currentGroovyCodeMd5)) {
             return false;
         }
         return true;

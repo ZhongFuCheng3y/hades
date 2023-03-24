@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author 3y
- * 测试的脚本依赖该对象
+ * 模拟测试的脚本依赖该对象
  */
 @Service
 public class DependencyService {

@@ -1,4 +1,4 @@
-package com.java3y.hades.example.nacos.service;
+package com.java3y.hades.starter.config;
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.config.ConfigService;

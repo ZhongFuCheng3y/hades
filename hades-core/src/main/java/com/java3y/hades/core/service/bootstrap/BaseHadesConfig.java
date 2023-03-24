@@ -1,14 +1,14 @@
-package com.java3y.hades.core.service.core;
+package com.java3y.hades.core.service.bootstrap;
 
 import com.alibaba.fastjson2.JSON;
 import com.google.common.base.Throwables;
 import com.java3y.hades.core.domain.MainConfig;
 import com.java3y.hades.core.service.bean.RegisterBeanService;
+import com.java3y.hades.core.service.config.HadesConfigProperties;
 import com.java3y.hades.core.utils.GroovyUtils;
 import com.java3y.hades.core.utils.HadesCache;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
@@ -19,25 +19,17 @@ import java.util.Objects;
  */
 @Slf4j
 public abstract class BaseHadesConfig implements HadesConfig {
-    /**
-     * 核心主配置名
-     * apollo / nacos 共用
-     */
-    @Value("${hades.main.config.file-name}")
-    protected String mainConfigFileName;
 
-    /**
-     * nacos 使用
-     */
-    @Value("${hades.main.config.group-name}")
-    protected String nacosGroup;
+
+    @Autowired
+    protected HadesConfigProperties configProperties;
 
     @Autowired
     private RegisterBeanService registerBeanService;
 
     @PostConstruct
     public void init() {
-        String mainConfig = getConfigValueByName(mainConfigFileName);
+        String mainConfig = getConfigValueByName(configProperties.getFileName());
         if (StringUtils.hasText(mainConfig)) {
             bootstrap(mainConfig);
             addListener();

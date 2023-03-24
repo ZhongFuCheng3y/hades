@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.java3y.hades.starter.autoconfigure.HadesAutoConfiguration

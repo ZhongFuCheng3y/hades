@@ -5,7 +5,7 @@ import com.ctrip.framework.apollo.ConfigService;
 import com.ctrip.framework.apollo.core.enums.ConfigFileFormat;
 import com.ctrip.framework.apollo.model.ConfigFileChangeEvent;
 import com.google.common.base.Throwables;
-import com.java3y.hades.core.service.core.BaseHadesConfig;
+import com.java3y.hades.core.service.bootstrap.BaseHadesConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +22,10 @@ public class ApolloStarter extends BaseHadesConfig implements ConfigFileChangeLi
     @Override
     public void addListener() {
         try {
-            ConfigService.getConfigFile(mainConfigFileName, ConfigFileFormat.TXT).addChangeListener(this);
-            log.info("分布式配置中心配置[{}]监听器已启动", mainConfigFileName);
+            ConfigService.getConfigFile(configProperties.getFileName(), ConfigFileFormat.TXT).addChangeListener(this);
+            log.info("分布式配置中心配置[{}]监听器已启动", configProperties.getFileName());
         } catch (Exception e) {
-            log.error("HadesConfigService#refresh key:[{}] fail:{}", mainConfigFileName, Throwables.getStackTraceAsString(e));
+            log.error("HadesConfigService#refresh key:[{}] fail:{}", configProperties.getFileName(), Throwables.getStackTraceAsString(e));
         }
     }
 
@@ -41,7 +41,7 @@ public class ApolloStarter extends BaseHadesConfig implements ConfigFileChangeLi
 
     @Override
     public void onChange(ConfigFileChangeEvent changeEvent) {
-        log.info("分布式配置中心监听到[{}]数据更新:{}", mainConfigFileName, changeEvent.getNewValue());
+        log.info("分布式配置中心监听到[{}]数据更新:{}", configProperties.getFileName(), changeEvent.getNewValue());
         bootstrap(changeEvent.getNewValue());
     }
 }

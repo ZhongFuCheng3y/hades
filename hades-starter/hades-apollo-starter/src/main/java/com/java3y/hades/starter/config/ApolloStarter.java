@@ -1,4 +1,4 @@
-package com.java3y.hades.example.apollo.service;
+package com.java3y.hades.starter.config;
 
 import com.ctrip.framework.apollo.ConfigFileChangeListener;
 import com.ctrip.framework.apollo.ConfigService;
@@ -12,12 +12,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author 3y
- * nacos 启动器
+ * apollo 启动器
  */
 @Service
 @Slf4j
 public class ApolloStarter extends BaseHadesConfig implements ConfigFileChangeListener {
-
 
     @Override
     public void addListener() {

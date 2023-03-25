@@ -43,7 +43,7 @@ public abstract class BaseHadesConfig implements HadesConfig {
      *
      * @param mainConfig {"instanceNames":["TencentSmsService"],"updateTime":"2023年3月20日10:26:0131"}
      */
-    public void bootstrap(String mainConfig) {
+    public synchronized void bootstrap(String mainConfig) {
         try {
             MainConfig mainConfigVal = JSON.parseObject(mainConfig, MainConfig.class);
             for (String instanceName : mainConfigVal.getInstanceNames()) {

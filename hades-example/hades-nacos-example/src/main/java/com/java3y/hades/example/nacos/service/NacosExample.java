@@ -18,7 +18,7 @@ import java.util.concurrent.Executor;
  */
 @Service
 @Slf4j
-public class NacosStarter extends BaseHadesConfig implements Listener {
+public class NacosExample extends BaseHadesConfig implements Listener {
 
     @NacosInjected
     private ConfigService configService;

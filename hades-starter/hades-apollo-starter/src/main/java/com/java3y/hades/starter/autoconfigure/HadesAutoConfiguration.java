@@ -7,17 +7,18 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import static com.ctrip.framework.apollo.spring.config.PropertySourcesConstants.APOLLO_BOOTSTRAP_ENABLED;
+
 
 /**
- * hades Nacos 自动配置类
+ * hades apollo 自动配置类
  *
  * @author 3y
  */
 @Configuration
-@ConditionalOnClass(value = com.alibaba.nacos.api.config.ConfigService.class)
-@ConditionalOnProperty(value = HadesConstant.HADES_ENABLED_PROPERTIES, havingValue = "true")
+@ConditionalOnClass(value = com.ctrip.framework.apollo.ConfigService.class)
+@ConditionalOnProperty(value = {HadesConstant.HADES_ENABLED_PROPERTIES, APOLLO_BOOTSTRAP_ENABLED}, havingValue = "true")
 @ComponentScan(HadesConstant.SCAN_PATH)
 public class HadesAutoConfiguration {
-
 
 }

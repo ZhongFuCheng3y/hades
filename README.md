@@ -68,6 +68,7 @@ nacos.config.namespace=9537c674-f3a6-4203-b286-ef0c36bfacb2
 nacos.config.enabled=true
 
 # heades param you should write
+hades.main.config.enabled=true
 hades.main.config.file-name=hades
 hades.main.config.group-name=hades
 ```
@@ -81,8 +82,8 @@ apollo.bootstrap.enabled=true
 apollo.meta=austin-apollo
 
 # heades param you should write
+hades.main.config.enabled=true
 hades.main.config.file-name=hades
-hades.main.config.group-name=hades
 ```
 
 3、在对应的分布式配置中心创建`hades`主配置，配置内容如下：

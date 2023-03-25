@@ -12,6 +12,11 @@ public class HadesConstant {
     public static final String PROPERTIES_PREFIX = "hades.main.config";
 
     /**
+     * 启用配置的key
+     */
+    public static final String HADES_ENABLED_PROPERTIES = PROPERTIES_PREFIX + ".enabled";
+
+    /**
      * Spring扫描路径
      */
     public static final String SCAN_PATH = "com.java3y.hades";

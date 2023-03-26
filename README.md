@@ -43,14 +43,14 @@
 <dependency>
     <groupId>io.github.ZhongFuCheng3y</groupId>
     <artifactId>hades-apollo-starter</artifactId>
-    <version>// TODO 未发布至maven仓库</version>
+    <version>1.0.2</version>
 </dependency>
 
 <!--如果你用apollo，则引入该dependency-->
 <dependency>
     <groupId>io.github.ZhongFuCheng3y</groupId>
     <artifactId>hades-nacos-starter</artifactId>
-    <version>// TODO 未发布至maven仓库</version>
+    <version>1.0.2</version>
 </dependency>
 
 ```

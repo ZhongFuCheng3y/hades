@@ -43,14 +43,14 @@
 <dependency>
     <groupId>io.github.ZhongFuCheng3y</groupId>
     <artifactId>hades-apollo-starter</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 
-<!--如果你用apollo，则引入该dependency-->
+<!--如果你用nacos，则引入该dependency-->
 <dependency>
     <groupId>io.github.ZhongFuCheng3y</groupId>
     <artifactId>hades-nacos-starter</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 </dependency>
 
 ```

@@ -48,7 +48,7 @@ public abstract class BaseHadesConfig implements HadesConfig {
             MainConfig mainConfigVal = JSON.parseObject(mainConfig, MainConfig.class);
             for (String instanceName : mainConfigVal.getInstanceNames()) {
                 String groovyCode = getConfigValueByName(instanceName);
-                if (HadesCache.diff(instanceName, groovyCode)) {
+                if (StringUtils.hasText(groovyCode) && HadesCache.diff(instanceName, groovyCode)) {
                     register(instanceName, groovyCode);
                 }
             }

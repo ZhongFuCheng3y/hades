@@ -7,7 +7,7 @@
     <groupId>io.github.ZhongFuCheng3y</groupId>
     <artifactId>hades</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <modules>
         <module>hades-core</module>

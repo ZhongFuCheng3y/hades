@@ -22,26 +22,26 @@ public class ApolloExample extends BaseHadesConfig implements ConfigFileChangeLi
     @Override
     public void addListener() {
         try {
-            ConfigService.getConfigFile(configProperties.getFileName(), ConfigFileFormat.TXT).addChangeListener(this);
-            log.info("分布式配置中心配置[{}]监听器已启动", configProperties.getFileName());
+            ConfigService.getConfigFile(configProperties.getDomain() + "." + configProperties.getConfigName(), ConfigFileFormat.TXT).addChangeListener(this);
+            log.info("分布式配置中心配置[{}]监听器已启动", configProperties.getConfigName());
         } catch (Exception e) {
-            log.error("HadesConfigService#refresh key:[{}] fail:{}", configProperties.getFileName(), Throwables.getStackTraceAsString(e));
+            log.error("HadesConfigService#refresh key:[{}] fail:{}", configProperties.getDomain() + "." + configProperties.getConfigName(), Throwables.getStackTraceAsString(e));
         }
     }
 
     @Override
-    public String getConfigValueByName(String fileName) {
+    public String getConfigValueByName(String configName) {
         try {
-            return ConfigService.getConfigFile(fileName, ConfigFileFormat.TXT).getContent();
+            return ConfigService.getConfigFile(configProperties.getDomain() + "." + configName, ConfigFileFormat.TXT).getContent();
         } catch (Exception e) {
-            log.error("HadesConfigService#getConfigValueByName key:[{}],fail:{}", fileName, Throwables.getStackTraceAsString(e));
+            log.error("HadesConfigService#getConfigValueByName key:[{}],fail:{}", configName, Throwables.getStackTraceAsString(e));
         }
         return null;
     }
 
     @Override
     public void onChange(ConfigFileChangeEvent changeEvent) {
-        log.info("分布式配置中心监听到[{}]数据更新:{}", configProperties.getFileName(), changeEvent.getNewValue());
+        log.info("分布式配置中心监听到[{}]数据更新:{}", configProperties.getDomain() + "." + configProperties.getConfigName(), changeEvent.getNewValue());
         bootstrap(changeEvent.getNewValue());
     }
 }

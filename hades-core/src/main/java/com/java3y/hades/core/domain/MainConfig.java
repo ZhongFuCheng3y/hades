@@ -18,6 +18,11 @@ import java.util.List;
 public class MainConfig {
 
     /**
+     * 域
+     */
+    private String domain;
+
+    /**
      * 实例名
      */
     private List<String> instanceNames;

@@ -15,8 +15,8 @@ public interface HadesConfig {
     /**
      * 通过文件名获取得到文件内容
      *
-     * @param fileName
+     * @param configName
      * @return
      */
-    String getConfigValueByName(String fileName);
+    String getConfigValueByName(String configName);
 }

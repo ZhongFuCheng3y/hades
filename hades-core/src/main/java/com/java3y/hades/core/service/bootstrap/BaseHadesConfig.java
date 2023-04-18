@@ -29,7 +29,7 @@ public abstract class BaseHadesConfig implements HadesConfig {
 
     @PostConstruct
     public void init() {
-        String mainConfig = getConfigValueByName(configProperties.getFileName());
+        String mainConfig = getConfigValueByName(configProperties.getConfigName());
         if (StringUtils.hasText(mainConfig)) {
             bootstrap(mainConfig);
             addListener();

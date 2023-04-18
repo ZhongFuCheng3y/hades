@@ -19,16 +19,14 @@ public class HadesConfigProperties {
     private Boolean enabled;
 
     /**
-     * 主配置名
-     * nacos / apollo 通用
+     * 配置名,相当于:nacos的dataId,apollo的namespace
      */
-    private String fileName;
+    private String configName;
 
     /**
-     * nacos专用
-     * groupName
+     * 配置域,相当于:nacos的group,apollo的namespace加上前缀
      */
-    private String groupName;
+    private String domain;
 
 
 }

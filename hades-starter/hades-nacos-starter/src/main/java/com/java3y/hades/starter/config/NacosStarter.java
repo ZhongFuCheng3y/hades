@@ -26,20 +26,20 @@ public class NacosStarter extends BaseHadesConfig implements Listener {
     @Override
     public void addListener() {
         try {
-            configService.addListener(configProperties.getFileName(), configProperties.getGroupName(), this);
-            log.info("分布式配置中心配置[{}]监听器已启动", configProperties.getFileName());
+            configService.addListener(configProperties.getConfigName(), configProperties.getDomain(), this);
+            log.info("分布式配置中心配置[{}]监听器已启动", configProperties.getConfigName());
         } catch (Exception e) {
-            log.error("HadesConfigService#refresh key:[{}] fail:{}", configProperties.getFileName(), Throwables.getStackTraceAsString(e));
+            log.error("HadesConfigService#refresh key:[{}] fail:{}", configProperties.getConfigName(), Throwables.getStackTraceAsString(e));
         }
     }
 
     @Override
-    public String getConfigValueByName(String fileName) {
+    public String getConfigValueByName(String configName) {
         try {
 
-            return configService.getConfig(fileName, configProperties.getGroupName(), 3000L);
+            return configService.getConfig(configName, configProperties.getDomain(), 3000L);
         } catch (NacosException e) {
-            log.error("HadesConfigService#getConfigValueByName key:[{}],fail:{}", fileName, Throwables.getStackTraceAsString(e));
+            log.error("HadesConfigService#getConfigValueByName key:[{}],fail:{}", configName, Throwables.getStackTraceAsString(e));
         }
         return null;
     }
@@ -47,7 +47,7 @@ public class NacosStarter extends BaseHadesConfig implements Listener {
 
     @Override
     public void receiveConfigInfo(String mainConfig) {
-        log.info("分布式配置中心监听到[{}]数据更新:{}", configProperties.getFileName(), mainConfig);
+        log.info("分布式配置中心监听到[{}]数据更新:{}", configProperties.getConfigName(), mainConfig);
         bootstrap(mainConfig);
     }
 

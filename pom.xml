@@ -13,6 +13,7 @@
         <module>hades-core</module>
         <module>hades-starter</module>
         <module>hades-example</module>
+        <module>hades-web</module>
     </modules>
 
     <parent>

@@ -28,10 +28,10 @@ public class HadesClient {
      * @param <T>
      * @return
      */
-    public <T> T getInterfaceByName(String instanceName) {
+    public <T> T getInterfaceByName(String domain, String instanceName) {
         T bean = null;
         try {
-            bean = (T) context.getBean(instanceName);
+            bean = (T) context.getBean(domain + "." + instanceName);
         } catch (Exception e) {
             log.error("HadesClient#getInterfaceByName get script name {} fail! e:{}", instanceName, Throwables.getStackTraceAsString(e));
         }
@@ -44,10 +44,10 @@ public class HadesClient {
      * @param instanceName
      * @return
      */
-    public GroovyObject getGroovyObjectByName(String instanceName) {
+    public GroovyObject getGroovyObjectByName(String domain, String instanceName) {
         GroovyObject groovyObject = null;
         try {
-            groovyObject = (GroovyObject) context.getBean(instanceName);
+            groovyObject = (GroovyObject) context.getBean(domain + "." + instanceName);
         } catch (Exception e) {
             log.error("HadesClient#getGroovyObjectByName get script name {} fail! e:{}", instanceName, Throwables.getStackTraceAsString(e));
         }
@@ -62,9 +62,9 @@ public class HadesClient {
      * @param params
      * @return 目标对象方法的返回值
      */
-    public Object execute(String instanceName, String methodName, Object[] params) {
+    public Object execute(String domain, String instanceName, String methodName, Object[] params) {
         Object resultObj = null;
-        GroovyObject groovyObject = getGroovyObjectByName(instanceName);
+        GroovyObject groovyObject = getGroovyObjectByName(domain, instanceName);
         try {
             if (Objects.nonNull(groovyObject)) {
                 resultObj = groovyObject.invokeMethod(methodName, params);

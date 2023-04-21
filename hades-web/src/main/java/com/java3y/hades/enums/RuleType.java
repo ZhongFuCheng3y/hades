@@ -18,11 +18,11 @@ public enum RuleType implements PowerfulEnum {
     /**
      * 10.Java原生代码
      */
-    JAVA_CODE(10, "Java原生代码"),
+    CODE(10, "Java原生代码"),
     /**
      * 20.页面逻辑规则
      */
-    WEB_LOGIC(20, "审核成功");
+    GRAPH(20, "规则逻辑图");
 
     private final Integer code;
     private final String description;

@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author 3y
  * 主配置
- * eg：{"instanceNames":["TencentSmsService"],"updateTime":"2023年3月20日10:26:0131"}
+ * eg：[{"domain":"austin","instanceNames":["austin.TencentSmsService"],"updateTime":"2023年3月20日10:26:0131"}]
  */
 @Data
 @AllArgsConstructor
@@ -23,7 +23,7 @@ public class MainConfig {
     private String domain;
 
     /**
-     * 实例名
+     * 实例名: 域 + className
      */
     private List<String> instanceNames;
 

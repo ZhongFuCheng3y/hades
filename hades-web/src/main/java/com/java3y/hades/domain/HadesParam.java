@@ -29,9 +29,14 @@ public class HadesParam {
     private String ruleType;
 
     /**
-     * 规则 脚本/逻辑
+     * 规则 逻辑图
      */
-    private String ruleLogic;
+    private String ruleLogicGraph;
+
+    /**
+     * 规则 脚本代码
+     */
+    private String ruleLogicCode;
 
 
 }

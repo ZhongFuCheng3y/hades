@@ -21,5 +21,10 @@ public class HadesConstant {
      */
     public static final String SCAN_PATH = "com.java3y.hades";
 
+    /**
+     * 主配置名
+     */
+    public static final String MAIN_CONFIG_NAME = "hades";
+
 
 }

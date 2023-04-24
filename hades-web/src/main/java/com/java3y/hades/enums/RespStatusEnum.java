@@ -14,7 +14,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @AllArgsConstructor
-public enum RespStatusEnum implements PowerfulEnum {
+public enum RespStatusEnum  {
 
     /**
      * 错误

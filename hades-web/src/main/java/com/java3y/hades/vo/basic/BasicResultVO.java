@@ -1,4 +1,4 @@
-package com.java3y.hades.vo;
+package com.java3y.hades.vo.basic;
 
 import com.java3y.hades.enums.RespStatusEnum;
 import lombok.AllArgsConstructor;

@@ -61,7 +61,7 @@
 
 ```properties
 
-nacos.config.server-addr=austin.nacos:8848
+nacos.config.server-addr=austin-nacos:8848
 nacos.config.username=nacos
 nacos.config.password=nacos
 nacos.config.namespace=9537c674-f3a6-4203-b286-ef0c36bfacb2

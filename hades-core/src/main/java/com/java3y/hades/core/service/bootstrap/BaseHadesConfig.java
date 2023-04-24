@@ -2,7 +2,6 @@ package com.java3y.hades.core.service.bootstrap;
 
 import com.alibaba.fastjson2.JSON;
 import com.google.common.base.Throwables;
-import com.java3y.hades.core.constant.HadesConstant;
 import com.java3y.hades.core.domain.MainConfig;
 import com.java3y.hades.core.service.bean.RegisterBeanService;
 import com.java3y.hades.core.service.config.HadesConfigProperties;
@@ -13,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -30,30 +30,31 @@ public abstract class BaseHadesConfig implements HadesConfig {
 
     @PostConstruct
     public void init() {
-        String mainConfig = getConfigValueByName(HadesConstant.MAIN_CONFIG_NAME);
-        if (StringUtils.hasText(mainConfig)) {
-            bootstrap(mainConfig);
+        if (!StringUtils.hasText(getConfigValueByName(configProperties.getConfigName()))) {
+            MainConfig initConfig = MainConfig.builder().instanceNames(new ArrayList<>()).updateTime(System.currentTimeMillis()).build();
+            addOrUpdateProperty(configProperties.getConfigName(), JSON.toJSONString(initConfig));
+        }
+        if (StringUtils.hasText(getConfigValueByName(configProperties.getConfigName()))) {
+            bootstrap(getConfigValueByName(configProperties.getConfigName()));
             addListener();
         }
     }
+
 
     /**
      * 1、解析主配置
      * 2、得到每个groovy配置并比对有无变化
      * 3、有变化的groovy配置重新注册
      *
-     * @param mainConfig [{"domain":"austin","instanceNames":["austin.TencentSmsService"],"updateTime":"2023年3月20日10:26:0131"}]
+     * @param mainConfig {"instanceNames":["com.java3y.hades.core.constant.HadesConstant"],"updateTime":"2023年3月20日10:26:0131"}
      */
     public synchronized void bootstrap(String mainConfig) {
         try {
-            for (MainConfig config : JSON.parseArray(mainConfig, MainConfig.class)) {
-                if (config.getDomain().equals(configProperties.getDomain())) {
-                    for (String instanceName : config.getInstanceNames()) {
-                        String groovyCode = getConfigValueByName(instanceName);
-                        if (StringUtils.hasText(groovyCode) && HadesCache.diff(instanceName, groovyCode)) {
-                            register(instanceName, groovyCode);
-                        }
-                    }
+            MainConfig config = JSON.parseObject(mainConfig, MainConfig.class);
+            for (String instanceName : config.getInstanceNames()) {
+                String groovyCode = getConfigValueByName(instanceName);
+                if (StringUtils.hasText(groovyCode) && HadesCache.diff(instanceName, groovyCode)) {
+                    register(instanceName, groovyCode);
                 }
             }
         } catch (Exception e) {

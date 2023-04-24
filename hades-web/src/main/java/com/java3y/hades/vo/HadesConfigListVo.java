@@ -1,19 +1,21 @@
-package com.java3y.hades.domain;
+package com.java3y.hades.vo;
+
 
 import com.java3y.hades.enums.RuleType;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * hades web入参
- *
  * @author 3y
+ * hades配置返回类
  */
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class HadesParam {
+public class HadesConfigListVo {
 
     /**
      * 全限定类名(包名+类名)
@@ -37,12 +39,4 @@ public class HadesParam {
      * 规则 脚本代码
      */
     private String ruleLogicCode;
-
-
-    /**
-     * 搜索条件：关键词
-     */
-    private String keywords;
-
-
 }

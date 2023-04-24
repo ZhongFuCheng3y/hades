@@ -27,17 +27,17 @@ public class NacosExample extends BaseHadesConfig implements Listener {
     @Override
     public void addListener() {
         try {
-            configService.addListener(HadesConstant.MAIN_CONFIG_NAME, configProperties.getDomain(), this);
-            log.info("分布式配置中心配置[{}]监听器已启动", HadesConstant.MAIN_CONFIG_NAME);
+            configService.addListener(configProperties.getConfigName(), HadesConstant.NACOS_DEFAULT_GROUP, this);
+            log.info("分布式配置中心配置[{}]监听器已启动", configProperties.getConfigName());
         } catch (Exception e) {
-            log.error("HadesConfigService#refresh key:[{}] fail:{}", HadesConstant.MAIN_CONFIG_NAME, Throwables.getStackTraceAsString(e));
+            log.error("HadesConfigService#refresh key:[{}] fail:{}", configProperties.getConfigName(), Throwables.getStackTraceAsString(e));
         }
     }
 
     @Override
     public String getConfigValueByName(String configName) {
         try {
-            return configService.getConfig(configName, configProperties.getDomain(), 3000L);
+            return configService.getConfig(configName,HadesConstant.NACOS_DEFAULT_GROUP, 3000L);
         } catch (NacosException e) {
             log.error("HadesConfigService#getConfigValueByName key:[{}],fail:{}", configName, Throwables.getStackTraceAsString(e));
         }
@@ -45,14 +45,21 @@ public class NacosExample extends BaseHadesConfig implements Listener {
     }
 
 
+
+
     @Override
     public void receiveConfigInfo(String mainConfig) {
-        log.info("分布式配置中心监听到[{}]数据更新:{}", HadesConstant.MAIN_CONFIG_NAME, mainConfig);
+        log.info("分布式配置中心监听到[{}]数据更新:{}", configProperties.getConfigName(), mainConfig);
         bootstrap(mainConfig);
     }
 
     @Override
     public Executor getExecutor() {
         return null;
+    }
+
+    @Override
+    public void addOrUpdateProperty(String key, String value) {
+
     }
 }

@@ -19,4 +19,12 @@ public interface HadesConfig {
      * @return
      */
     String getConfigValueByName(String configName);
+
+    /**
+     * 设置配置(nacos/apollo)
+     *
+     * @param key
+     * @param value
+     */
+    void addOrUpdateProperty(String key, String value);
 }

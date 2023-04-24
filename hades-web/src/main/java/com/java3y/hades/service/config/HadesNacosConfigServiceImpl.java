@@ -1,4 +1,5 @@
-package com.java3y.hades.starter.config;
+package com.java3y.hades.service.config;
+
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.config.ConfigService;
@@ -7,7 +8,10 @@ import com.alibaba.nacos.api.exception.NacosException;
 import com.google.common.base.Throwables;
 import com.java3y.hades.core.constant.HadesConstant;
 import com.java3y.hades.core.service.bootstrap.BaseHadesConfig;
+import com.java3y.hades.core.service.config.HadesConfigProperties;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.Executor;
@@ -15,22 +19,24 @@ import java.util.concurrent.Executor;
 
 /**
  * @author 3y
- * nacos 启动器
+ * Nacos配置实现类
  */
 @Service
 @Slf4j
-public class NacosStarter extends BaseHadesConfig implements Listener {
+@ConditionalOnProperty(name = "nacos.config.enabled", havingValue = "true")
+public class HadesNacosConfigServiceImpl extends BaseHadesConfig implements Listener {
+    @Autowired
+    protected HadesConfigProperties configProperties;
 
     @NacosInjected
     private ConfigService configService;
 
     @Override
-    public void addListener() {
+    public void addOrUpdateProperty(String key, String value) {
         try {
-            configService.addListener(configProperties.getConfigName(), HadesConstant.NACOS_DEFAULT_GROUP, this);
-            log.info("分布式配置中心配置[{}]监听器已启动", configProperties.getConfigName());
+            configService.publishConfig(key, HadesConstant.NACOS_DEFAULT_GROUP, value);
         } catch (Exception e) {
-            log.error("HadesConfigService#refresh key:[{}] fail:{}", configProperties.getConfigName(), Throwables.getStackTraceAsString(e));
+            log.error("HadesConfigService#addOrUpdateProperty fail:{}", Throwables.getStackTraceAsString(e));
         }
     }
 
@@ -44,22 +50,16 @@ public class NacosStarter extends BaseHadesConfig implements Listener {
         return null;
     }
 
-
-
     @Override
     public void receiveConfigInfo(String mainConfig) {
-        log.info("分布式配置中心监听到[{}]数据更新:{}", configProperties.getConfigName(), mainConfig);
-        bootstrap(mainConfig);
+    }
+
+    @Override
+    public void addListener() {
     }
 
     @Override
     public Executor getExecutor() {
         return null;
     }
-
-    @Override
-    public void addOrUpdateProperty(String key, String value) {
-
-    }
-
 }

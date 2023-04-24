@@ -2,7 +2,7 @@ package com.java3y.hades.advice;
 
 
 import com.java3y.hades.annotation.HadesResult;
-import com.java3y.hades.vo.BasicResultVO;
+import com.java3y.hades.vo.basic.BasicResultVO;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;

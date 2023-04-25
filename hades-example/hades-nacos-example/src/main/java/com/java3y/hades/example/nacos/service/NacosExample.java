@@ -62,4 +62,13 @@ public class NacosExample extends BaseHadesConfig implements Listener {
     public void addOrUpdateProperty(String key, String value) {
 
     }
+
+    @Override
+    public void removeProperty(String key)  {
+        try {
+            configService.removeConfig(key, HadesConstant.NACOS_DEFAULT_GROUP);
+        } catch (NacosException e) {
+            log.error("HadesConfigService#removeProperty fail:{}", Throwables.getStackTraceAsString(e));
+        }
+    }
 }

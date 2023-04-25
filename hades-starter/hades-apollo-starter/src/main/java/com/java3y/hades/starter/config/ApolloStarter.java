@@ -50,4 +50,9 @@ public class ApolloStarter extends BaseHadesConfig implements ConfigFileChangeLi
 
     }
 
+    @Override
+    public void removeProperty(String key) {
+
+    }
+
 }

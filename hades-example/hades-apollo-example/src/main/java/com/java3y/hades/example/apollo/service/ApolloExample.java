@@ -50,4 +50,9 @@ public class ApolloExample extends BaseHadesConfig implements ConfigFileChangeLi
     public void addOrUpdateProperty(String key, String value) {
 
     }
+
+    @Override
+    public void removeProperty(String key) {
+
+    }
 }

@@ -78,10 +78,15 @@ public class ConfigController {
             MainConfig mainConfig = JSON.parseObject(configService.getConfigValueByName(configProperties.getConfigName()), MainConfig.class);
             mainConfig.getInstanceNames().remove(name);
             configService.addOrUpdateProperty(configProperties.getConfigName(), JSON.toJSONString(mainConfig));
+            configService.removeProperty(configProperties.getConfigName());
             return BasicResultVO.success();
         } catch (Exception e) {
             log.error("ConfigController#deleteConfig fail:{}", Throwables.getStackTraceAsString(e));
         }
         return BasicResultVO.fail();
+    }
+
+    public static void main(String[] args) {
+
     }
 }

@@ -1,0 +1,19 @@
+package _PACKAGE_NAME_;
+
+
+import org.springframework.*;
+import org.springframework.stereotype.Component;
+import com.java3y.hades.core.service.ExecuteCondition;
+import java.util.*;
+
+@Component("_SCRIPT_NAME_")
+public class _CLASS_NAME_ implements ExecuteCondition  {
+
+    @Override
+    public Boolean execute(String string1,String string2,String string3,Long long1,Long long2,Long long3) {
+        if (_CONDITION_) {
+            return true;
+        }
+        return false;
+    }
+}

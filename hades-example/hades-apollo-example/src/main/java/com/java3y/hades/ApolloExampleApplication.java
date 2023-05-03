@@ -12,7 +12,7 @@ public class ApolloExampleApplication {
 
     public static void main(String[] args) {
         // 我的apollo是docker部署，跳过meta服务发现
-        System.setProperty("apollo.config-service", "http://austin.apollo.config:5001");
+        System.setProperty("apollo.config-service", "http://austin-apollo-config:8080");
         SpringApplication.run(ApolloExampleApplication.class, args);
     }
 }

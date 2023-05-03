@@ -19,9 +19,7 @@ import java.util.Objects;
  * @author 3y
  */
 @Slf4j
-public abstract class BaseHadesConfig implements HadesConfig {
-
-
+public abstract class BaseHadesBaseConfig implements HadesBaseConfig {
     @Autowired
     protected HadesConfigProperties configProperties;
 
@@ -30,10 +28,14 @@ public abstract class BaseHadesConfig implements HadesConfig {
 
     @PostConstruct
     public void init() {
+
+        // 适配hades-web端(创建出默认主配置)
         if (!StringUtils.hasText(getConfigValueByName(configProperties.getConfigName()))) {
             MainConfig initConfig = MainConfig.builder().instanceNames(new ArrayList<>()).updateTime(System.currentTimeMillis()).build();
             addOrUpdateProperty(configProperties.getConfigName(), JSON.toJSONString(initConfig));
         }
+
+        // 启动解析并注册监听器 (重点)
         if (StringUtils.hasText(getConfigValueByName(configProperties.getConfigName()))) {
             bootstrap(getConfigValueByName(configProperties.getConfigName()));
             addListener();

@@ -5,7 +5,7 @@ package com.java3y.hades.core.service.bootstrap;
  * @author 3y
  * 配置服务
  */
-public interface HadesConfig {
+public interface HadesBaseConfig {
 
     /**
      * 启动配置变更监听器

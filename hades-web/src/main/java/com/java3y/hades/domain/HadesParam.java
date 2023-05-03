@@ -1,5 +1,6 @@
 package com.java3y.hades.domain;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.java3y.hades.enums.RuleType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,7 +32,7 @@ public class HadesParam {
     /**
      * 规则 逻辑图
      */
-    private String ruleLogicGraph;
+    private JSONObject ruleLogicGraph;
 
     /**
      * 规则 脚本代码

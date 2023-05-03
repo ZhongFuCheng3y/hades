@@ -21,16 +21,16 @@ public class SendController {
     @RequestMapping("/test")
     private void test() {
         // 获取脚本对象，用接口接收
-        SendSmsService sendSmsService = hadesClient.getInterfaceByName("TencentSmsService");
+        SendSmsService sendSmsService = hadesClient.getInterfaceByName("com.java3y.hades.example.apollo.demo.TencentSmsService");
         sendSmsService.send();
 
         // 获取GroovyObject对象
-        GroovyObject groovyObject = hadesClient.getGroovyObjectByName("TencentSmsService");
+        GroovyObject groovyObject = hadesClient.getGroovyObjectByName("com.java3y.hades.example.apollo.demo.TencentSmsService");
         groovyObject.invokeMethod("send", null);
         log.info("groovy object:{}", groovyObject);
 
         // 直接执行脚本对应的方法，得到返回值
-        Object execute = hadesClient.execute("TencentSmsService", "send", null);
+        Object execute = hadesClient.execute("com.java3y.hades.example.apollo.demo.TencentSmsService", "send", null);
         System.out.println("result" + execute);
     }
 

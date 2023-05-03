@@ -5,7 +5,7 @@ import com.ctrip.framework.apollo.ConfigService;
 import com.ctrip.framework.apollo.core.enums.ConfigFileFormat;
 import com.ctrip.framework.apollo.model.ConfigFileChangeEvent;
 import com.google.common.base.Throwables;
-import com.java3y.hades.core.service.bootstrap.BaseHadesConfig;
+import com.java3y.hades.core.service.bootstrap.BaseHadesBaseConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Slf4j
-public class ApolloStarter extends BaseHadesConfig implements ConfigFileChangeListener {
+public class ApolloStarter extends BaseHadesBaseConfig implements ConfigFileChangeListener {
 
     @Override
     public void addListener() {

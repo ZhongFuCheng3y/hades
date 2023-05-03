@@ -1,4 +1,4 @@
-package com.java3y.hades.service.config;
+package com.java3y.hades.service.base;
 
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
@@ -7,7 +7,7 @@ import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.google.common.base.Throwables;
 import com.java3y.hades.core.constant.HadesConstant;
-import com.java3y.hades.core.service.bootstrap.BaseHadesConfig;
+import com.java3y.hades.core.service.bootstrap.BaseHadesBaseConfig;
 import com.java3y.hades.core.service.config.HadesConfigProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import java.util.concurrent.Executor;
 @Service
 @Slf4j
 @ConditionalOnProperty(name = "nacos.config.enabled", havingValue = "true")
-public class HadesNacosConfigServiceImpl extends BaseHadesConfig implements Listener {
+public class HadesNacosBaseConfigServiceImpl extends BaseHadesBaseConfig implements Listener {
     @Autowired
     protected HadesConfigProperties configProperties;
 
@@ -41,7 +41,7 @@ public class HadesNacosConfigServiceImpl extends BaseHadesConfig implements List
     }
 
     @Override
-    public void removeProperty(String key)  {
+    public void removeProperty(String key) {
         try {
             configService.removeConfig(key, HadesConstant.NACOS_DEFAULT_GROUP);
         } catch (NacosException e) {

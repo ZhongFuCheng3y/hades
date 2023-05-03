@@ -6,7 +6,7 @@ import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.google.common.base.Throwables;
 import com.java3y.hades.core.constant.HadesConstant;
-import com.java3y.hades.core.service.bootstrap.BaseHadesConfig;
+import com.java3y.hades.core.service.bootstrap.BaseHadesBaseConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ import java.util.concurrent.Executor;
  */
 @Service
 @Slf4j
-public class NacosExample extends BaseHadesConfig implements Listener {
+public class NacosExample extends BaseHadesBaseConfig implements Listener {
 
     @NacosInjected
     private ConfigService configService;

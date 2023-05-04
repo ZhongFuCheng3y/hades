@@ -5,7 +5,7 @@
     <parent>
         <artifactId>hades</artifactId>
         <groupId>io.github.ZhongFuCheng3y</groupId>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
     </parent>
     <packaging>pom</packaging>
     <modules>

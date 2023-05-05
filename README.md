@@ -18,17 +18,18 @@
   <a href="#项目交流"><img src="https://img.shields.io/badge/Nacos-2.1.0-red.svg" alt="ORM框架"></a>
 </p>
 
-## 一、hades 介绍
+## hades 介绍
 
 项目背景：业务开发逻辑变更频繁，一点小的修改都要发布系统，灵活度不够。对于一些**非核心流程又频繁改动**的部分是否可以用**动态脚本**替代？
 
 核心功能：**Java应用无须发布上下线，动态变更业务逻辑，对象实例均交由Spring管理**
 
+不适用场景：脚本依赖**运行环境**不存在的SDK和对象
 
 
-## 二、hades 使用手册
+## hades 使用手册
 
-### 2.1 引入maven依赖
+### 引入maven依赖
 
 ```xml
 
@@ -48,7 +49,7 @@
 
 ```
 
-### 2.2 配置信息
+### 配置信息
 
 在接入`hades`的项目配置文件中（如：`application.properties`）填写`hades`相关的配置信息
 
@@ -78,7 +79,7 @@ apollo.meta=austin-apollo
 hades.enabled=true
 hades.config-name=hades
 ```
-### 2.3 部署后端和前端（可选）
+### （可选）部署后端和前端
 
 目前后端部署仅支持使用`nacos`的小伙伴，`hades`有对应配置页面，将`hades`的前端和后端部署起来会方便使用些。
 
@@ -112,7 +113,7 @@ nacos.config.namespace=hades
 
 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e5ce613284a4c699ed7cfab085bc285~tplv-k3u1fbpfcp-watermark.image?)
 
-### 2.4 不部署后端和前端
+### 不部署后端和前端
 
 完全可以只通过分布式配置中心的后台，**手动去创建配置**，来实现效果。步骤如下：
 
@@ -132,9 +133,7 @@ nacos.config.namespace=hades
 
 ![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5e929b392304c1ba78535df5f932568~tplv-k3u1fbpfcp-watermark.image?)
 
-
-
-### 2.5使用客户端
+### 使用客户端
 
 客户端使用`HadesClient`获取对象或执行方法
 

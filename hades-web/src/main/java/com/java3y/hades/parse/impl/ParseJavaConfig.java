@@ -92,14 +92,14 @@ public class ParseJavaConfig implements ParseConfig {
             conjunction = "||";
         }
         List<Map<String, Object>> children = (List<Map<String, Object>>) config.get("children");
-        List<String> childConditionsV2 = new ArrayList<>();
+        List<String> childConditions = new ArrayList<>();
 
         for (Map<String, Object> child : children) {
             Map<String, Object> left = (Map<String, Object>) child.get("left");
             if (left == null) {
                 // 如果left为null，则认为是一个组合类型的节点
                 String childCondition = generateJavaCondition(child);
-                childConditionsV2.add(childCondition);
+                childConditions.add(childCondition);
             } else {
                 String type = (String) left.get("type");
 
@@ -109,20 +109,20 @@ public class ParseJavaConfig implements ParseConfig {
                     String op = (String) child.get("op");
                     Object right = child.get("right");
 
-                    String childConditionV2 = generateJavaFieldCondition(field, op, right);
-                    childConditionsV2.add(childConditionV2);
+                    String childCondition = generateJavaFieldCondition(field, op, right);
+                    childConditions.add(childCondition);
                 } else {
                     // 处理组合类型的节点
                     String childCondition = generateJavaCondition(child);
-                    childConditionsV2.add(childCondition);
+                    childConditions.add(childCondition);
                 }
             }
         }
 
-        String conditionV2 = String.join(" " + conjunction + " ", childConditionsV2);
+        String condition = String.join(" " + conjunction + " ", childConditions);
         if (children.size() > 1) {
-            conditionV2 = "(" + conditionV2 + ")";
+            condition = "(" + condition + ")";
         }
-        return conditionV2;
+        return condition;
     }
 }

@@ -1,0 +1,17 @@
+version: '3'
+services:
+  hades:
+    build:
+      context: ./
+    ports:
+      - "7890:7890"
+    restart: always
+    container_name: hades
+    environment:
+      - SET_CONTAINER_TIMEZONE=true
+      - CONTAINER_TIMEZONE=Asia/Shanghai
+      - TZ=Asia/Shanghai
+    networks:
+      - app
+networks:
+  app:

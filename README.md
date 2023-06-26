@@ -18,6 +18,8 @@
   <a href="#项目交流"><img src="https://img.shields.io/badge/Nacos-2.1.0-red.svg" alt="ORM框架"></a>
 </p>
 
+:fire:**hades文档不单独提供，跟austin消息推送平台捆绑**，详情可戳：[股东服务](https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247509248&idx=1&sn=804eb5f6471521e1ea6eaec9f74ddf09&chksm=ebd4e401dca36d175494337bc18ff71c265e4e07ad3ecd22f4b5b5f73efe7e247de2c614ad8a&token=888257127&lang=zh_CN#rd)
+
 ## hades 介绍
 
 项目背景：业务开发逻辑变更频繁，一点小的修改都要发布系统，灵活度不够。对于一些**非核心流程又频繁改动**的部分是否可以用**动态脚本**替代？
@@ -155,3 +157,5 @@ private void test() {
 }
 
 ```
+
+:fire:**hades文档不单独提供，跟austin消息推送平台捆绑**，详情可戳：[股东服务](https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247509248&idx=1&sn=804eb5f6471521e1ea6eaec9f74ddf09&chksm=ebd4e401dca36d175494337bc18ff71c265e4e07ad3ecd22f4b5b5f73efe7e247de2c614ad8a&token=888257127&lang=zh_CN#rd)

@@ -18,7 +18,7 @@
   <a href="#项目交流"><img src="https://img.shields.io/badge/Nacos-2.1.0-red.svg" alt="ORM框架"></a>
 </p>
 
-:fire:**hades文档不单独提供，跟austin消息推送平台捆绑**，详情可戳：[股东服务](https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247509248&idx=1&sn=804eb5f6471521e1ea6eaec9f74ddf09&chksm=ebd4e401dca36d175494337bc18ff71c265e4e07ad3ecd22f4b5b5f73efe7e247de2c614ad8a&token=888257127&lang=zh_CN#rd)
+:fire:**hades文档不单独提供，跟austin消息推送平台捆绑**，详情可戳：[股东服务](https://www.yuque.com/u1047901/eg5qvy/hh0gk5p4uwie8bva)
 
 ## hades 介绍
 
@@ -158,4 +158,4 @@ private void test() {
 
 ```
 
-:fire:**hades文档不单独提供，跟austin消息推送平台捆绑**，详情可戳：[股东服务](https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247509248&idx=1&sn=804eb5f6471521e1ea6eaec9f74ddf09&chksm=ebd4e401dca36d175494337bc18ff71c265e4e07ad3ecd22f4b5b5f73efe7e247de2c614ad8a&token=888257127&lang=zh_CN#rd)
+:fire:**hades文档不单独提供，跟austin消息推送平台捆绑**，详情可戳：[股东服务](https://www.yuque.com/u1047901/eg5qvy/hh0gk5p4uwie8bva)

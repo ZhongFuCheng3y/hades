@@ -1,4 +1,4 @@
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d640749c820d41c1b9d9846663fa56aa~tplv-k3u1fbpfcp-watermark.image?)
+![](doc/images/1.jpg)
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Author-3y-orange.svg" alt="作者"></a>
@@ -105,15 +105,15 @@ nacos.config.namespace=hades
 ```
 
 1、可选择直接添加Java代码，注意不要用**lombok**和**lambda**，groovy是不认的。
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e25df3922a7f48d7aff01d41671815fa~tplv-k3u1fbpfcp-watermark.image?)
+![](doc/images/2.png)
 
 2、如果是轻量级的逻辑，也可以直接在界面上配置逻辑，比如对字符串和数值的判断。当提交了之后，会根据条件自动生成对应`Java`代码，注册到`iOC`容器中
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0129320edd2c4e4aa1ae73774ce807d7~tplv-k3u1fbpfcp-watermark.image?)
+![](doc/images/3.png)
 
 3、添加规则完后，能在规则列表中看到对应内容，并将其**脚本注册**到`Spring iOC`容器中，供客户端使用
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e5ce613284a4c699ed7cfab085bc285~tplv-k3u1fbpfcp-watermark.image?)
+![](doc/images/4.png)
 
 ### 不部署后端和前端
 
@@ -133,7 +133,7 @@ nacos.config.namespace=hades
 
 2、新建`Groovy`脚本，`apollo`需要跟**主配置**在同`appId`下，`nacos`在同`namespace`下。`Groovy`脚本跟`Java`代码**99%相同**（不写`lambda`和`lambda`即可）
 
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c5e929b392304c1ba78535df5f932568~tplv-k3u1fbpfcp-watermark.image?)
+![](doc/images/5.png)
 
 ### 使用客户端
 
@@ -158,4 +158,14 @@ private void test() {
 
 ```
 
-:fire:**hades文档不单独提供，跟austin消息推送平台捆绑**，详情可戳：[股东服务](https://www.yuque.com/u1047901/eg5qvy/hh0gk5p4uwie8bva)
+### 开源项目austin
+
+想学Java项目的，我强烈推荐我的开源项目[消息推送平台Austin（9K stars）](https://gitee.com/zhongfucheng/austin)，可以用作**毕业设计**/**校招**，可以看看**线上生产环境**是怎么推送消息的。已经有不少同学**通过这个项目拿到字节/菜鸟/vivo等大厂**的offer了！
+
+:fire:项目仓库地址：[https://gitee.com/zhongfucheng/austin](https://gitee.com/zhongfucheng/austin)
+
+:fire:项目在线演示地址：[http://139.9.66.219:3000/](http://139.9.66.219:3000/)
+
+:fire:**11W+字，共107个文档，带你玩转austin**，详情可戳：[消息推送平台文档](https://www.yuque.com/u1047901/eg5qvy/hh0gk5p4uwie8bva)
+
+![](doc/images/9.png)

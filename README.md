@@ -164,7 +164,7 @@ private void test() {
 
 :fire:项目仓库地址：[https://gitee.com/zhongfucheng/austin](https://gitee.com/zhongfucheng/austin)
 
-:fire:项目在线演示地址：[http://139.9.66.219:3000/](http://139.9.66.219:3000/)
+:fire:项目在线演示地址：[http://119.91.205.248:3001](http://119.91.205.248:3001)
 
 :fire:**11W+字，共107个文档，带你玩转austin**，详情可戳：[消息推送平台文档](https://www.yuque.com/u1047901/eg5qvy/hh0gk5p4uwie8bva)
 

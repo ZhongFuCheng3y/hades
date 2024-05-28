@@ -18,7 +18,7 @@ import java.util.Objects;
  * @description 统一返回结构
  * @date 2023/2/9 19:00
  */
-@ControllerAdvice(basePackages = "com.java3y.austin.web.controller")
+@ControllerAdvice(basePackages = "com.java3y.hades.controller")
 public class HadesResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     private static final String RETURN_CLASS = "BasicResultVO";
